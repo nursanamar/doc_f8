@@ -300,7 +300,7 @@
   ```shell
     curl --request POST \
       --url http://<host>/merchant/   transaction \
-      --header 'authorization:    eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.   eyJpZF9tZXJjaGFudCI6Ijg5MTgwNDI3In0.   V_XfHJITqzisTO6Mbjx-GGhqZ4InkU2TAMLSbd7R7AU' \
+      --header 'authorization:eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZF9tZXJjaGFudCI6Ijg5MTgwNDI3In0.V_XfHJITqzisTO6Mbjx-GGhqZ4InkU2TAMLSbd7R7AU' \
       --header 'content-type: application/json' \
       --data '{
     	"amount": 20,
@@ -369,8 +369,134 @@
   ```shell
     curl --request GET \
       --url http://localhost/f8_api/merchant/   transaction \
-      --header 'authorization:    eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.   eyJpZF9tZXJjaGFudCI6Ijg5MTgwNDI3In0.   V_XfHJITqzisTO6Mbjx-GGhqZ4InkU2TAMLSbd7R7AU'
+      --header 'authorization:eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZF9tZXJjaGFudCI6Ijg5MTgwNDI3In0.V_XfHJITqzisTO6Mbjx-GGhqZ4InkU2TAMLSbd7R7AU'
   ``` 
 
 * **Notes:**
+
+
+## Player
+
+**Register Player**
+----
+  
+
+* **URL**
+
+  `/player/register`
+
+* **Method:**
+
+  `POST`
+  
+*  **URL Params**
+ 
+
+* **Data Params**
+  
+   **Required:**
     
+    `qr_code=[string]`
+
+    `player_id=[string]`
+
+    contoh:
+    ```json
+    {
+    	"qr_code": "dfjlkjkdf",
+    	"player_id": "nursan"
+    }
+    ```
+
+* **Success Response:**
+  
+
+  * **Code:** 200 <br />
+    **Content:** 
+    ```json
+    {
+      "status": true,
+      "data": {
+        "token":    "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZF9tZXJjaGFudCI6Ijg5MTgwNDI3In0.V_XfHJITqzisTO6Mbjx-GGhqZ4InkU2TAMLSbd7R7AU"
+      }
+    }
+    ```
+ 
+* **Error Response:**
+  * **Code:** 400 BAD REQUEST <br />
+
+  OR
+
+  * **Code:** 200 <br />
+    **Content:** 
+    ```json
+    {
+      "status": false,
+      "msg": "ID Player tidak teredia"
+    }
+    ```
+
+
+* **Sample Call:**
+
+    ```shell
+    curl --request POST \
+      --url http://<host>/player/register \
+      --header 'content-type: application/json' \
+      --data '{
+    	"qr_code": "dfjlkjkdf",
+    	"player_id": "nursan"
+    }'
+    ```
+
+* **Notes:**
+
+
+
+**Player Finish**
+----
+ 
+
+* **URL**
+
+    `/player/finish`
+
+* **Method:**
+  
+  `GET`
+  
+*  **URL Params**
+
+
+* **Data Params**
+  
+* **Headers**
+
+  `Authorization:<token>`
+
+* **Success Response:**
+
+  * **Code:** 200 <br />
+    **Content:**
+    ```json
+    {
+      "status": true,
+      "data": {
+        "end": "2019-09-26 12:49:48"
+      }
+    }
+    ```
+ 
+* **Error Response:**
+  * **Code:** 401 UNAUTHORIZED <br />
+
+  
+* **Sample Call:**
+
+  ```shell
+    curl --request GET \
+  --url http://<host>/player/finish \
+  --header 'authorization: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJxcl9jb2RlIjoiZGZqbGtqa2RmIiwibmFtZSI6Im51cnNhbiIsImlkX3BsYXllciI6IjgyODUzNjQ3In0.atCryfXgmGfXAc-WskpsM5IJQCVZaQcS6XS9dDeQg4U'
+  ``` 
+
+* **Notes:**
