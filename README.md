@@ -1,5 +1,7 @@
 # Dokumentasi API F8    
 
+## Host
+https://projects.upanastudio.com/f8-api
 
 ## Schedule
 
