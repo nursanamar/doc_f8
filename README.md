@@ -179,11 +179,16 @@ https://projects.upanastudio.com/f8-api
     **Content:** 
     ```json
     {
-      "status": true,
-      "data": {
-        "token":    "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZF9tZ   XJjaGFudCI6Ijg5MTgwNDI3In0.  V_XfHJITqzisTO6Mbjx-GGhqZ4InkU2TAMLSbd7R7AU"
+        "status": true,
+        "data": {
+          "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZF9tZXJjaGFudCI6Ijg5MTgwNDI3In0.V_XfHJITqzisTO6Mbjx-GGhqZ4InkU2TAMLSbd7R7AU",
+          "merchant": {
+            "name": "Makanan",
+            "owner": "Fulan",
+            "id_merchant": "89180427"
+          }
+        }
       }
-    }
     ```
  
 * **Error Response:**
@@ -502,3 +507,76 @@ https://projects.upanastudio.com/f8-api
   ``` 
 
 * **Notes:**
+
+## Poi
+
+**List**
+----
+  List data Poi
+
+* **URL**
+
+  `/poi`
+
+* **Method:**
+
+  `GET`
+  
+*  **URL Params**
+
+  
+
+   **Required:**
+ 
+  
+
+   **Optional:**
+ 
+
+* **Data Params**
+
+
+* **Success Response:**
+  
+
+  * **Code:** 200 <br />
+    **Content:** 
+    ```json
+    {
+      "status": true,
+      "data": [
+        {
+          "id_poi": "95268017",
+          "name": "Coto",
+          "category": "Kuliner",
+          "information": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In quis pretium felis. Curabitur elementum sem ut ante sodales, a sodales lorem dignissim. Donec non magna sem. Etiam ut sapien a mauris sagittis semper. Pellentesque a odio et purus tempus ullamcorper. Donec vehicula est sit amet leo auctor, vitae euismod turpis viverra. Suspendisse eget dui non justo blandit ultricies sed ac erat. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae;",
+          "lat": "-5.14368070",
+          "lng": "119.40546800"
+        },
+        {
+          "id_poi": "97241956",
+          "name": "Pantai",
+          "category": "Alam",
+          "information": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In quis pretium felis. Curabitur elementum sem ut ante sodales, a sodales lorem dignissim. Donec non magna sem. Etiam ut sapien a mauris sagittis semper. Pellentesque a odio et purus tempus ullamcorper. Donec vehicula est sit amet leo auctor, vitae euismod turpis viverra. Suspendisse eget dui non justo blandit ultricies sed ac erat. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae;",
+          "lat": "-5.14368070",
+          "lng": "119.40546800"
+        }
+        .......
+      ]
+    }
+    ```
+ 
+* **Error Response:**
+
+
+
+* **Sample Call:**
+
+    ```shell
+    curl --request GET \
+      --url http://<host>/poi
+    ```
+
+* **Notes:**
+
+
