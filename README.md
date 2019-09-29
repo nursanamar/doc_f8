@@ -90,11 +90,12 @@ https://projects.upanastudio.com/f8-api
   
 *  **URL Params**
 
-   **Optional:**
+   **Required:**
  
    `id_stage=[alphanumeric]`
+
+   `day=[alphanumeric]`
    
-   Event berdasarkan stage
 
 * **Data Params**
 
@@ -113,16 +114,9 @@ https://projects.upanastudio.com/f8-api
           "day": "1",
           "start": "08:00:00",
           "end": "09:00:00"
-        },
-        {
-          "id_schedule": "62486795",
-          "id_stage": "40975168",
-          "name": "Dance",
-          "day": "2",
-          "start": "08:00:00",
-          "end": "10:00:00"
         }
-      ]
+      ],
+      "msg": "OK"
     }
     ```
  
@@ -133,7 +127,7 @@ https://projects.upanastudio.com/f8-api
 
   ```shell
     curl --request GET \
-        --url http://<host>/schedule/event
+        --url 'http://<host>/schedule/event?day=1&id_stage=19051273'
     ``` 
 
 * **Notes:**
@@ -187,12 +181,20 @@ https://projects.upanastudio.com/f8-api
             "owner": "Fulan",
             "id_merchant": "89180427"
           }
-        }
+        },
+        "msg": "OK"
       }
     ```
  
 * **Error Response:**
   * **Code:** 400 BAD REQUEST <br />
+  **Content:** 
+    ```json
+    {
+      "status": false,
+      "msg": "BAD REQUEST"
+    }
+    ```
 
   OR
 
@@ -275,13 +277,28 @@ https://projects.upanastudio.com/f8-api
           "id_merchant": "89180427",
           "id_transaction": "30532749"
         }
-      }
+      },
+      "msg": "OK"
     }
     ```
  
 * **Error Response:**
   * **Code:** 400 BAD REQUEST <br />
+  **Content:** 
+    ```json
+    {
+      "status": false,
+      "msg": "BAD REQUEST"
+    }
+    ```
   * **Code:** 401 UNAUTHORIZED <br />
+  **Content:** 
+    ```json
+    {
+      "status": false,
+      "msg": "UNAUTHORIZED"
+    }
+    ```
 
   OR
 
@@ -363,12 +380,20 @@ https://projects.upanastudio.com/f8-api
           },
           .....
         ]
-      }
+      },
+      "mag": "OK"
     }
     ```
  
 * **Error Response:**
   * **Code:** 401 UNAUTHORIZED <br />
+  **Content:** 
+    ```json
+    {
+      "status": false,
+      "msg": "UNAUTHORIZED"
+    }
+    ```
 
 
 * **Sample Call:**
@@ -425,12 +450,20 @@ https://projects.upanastudio.com/f8-api
       "status": true,
       "data": {
         "token":    "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZF9tZXJjaGFudCI6Ijg5MTgwNDI3In0.V_XfHJITqzisTO6Mbjx-GGhqZ4InkU2TAMLSbd7R7AU"
-      }
+      },
+      "msg":"OK"
     }
     ```
  
 * **Error Response:**
   * **Code:** 400 BAD REQUEST <br />
+  **Content:** 
+    ```json
+    {
+      "status": false,
+      "msg": "BAD REQUEST"
+    }
+    ```
 
   OR
 
@@ -490,12 +523,20 @@ https://projects.upanastudio.com/f8-api
       "status": true,
       "data": {
         "end": "2019-09-26 12:49:48"
-      }
+      },
+      "msg":"OK"
     }
     ```
  
 * **Error Response:**
   * **Code:** 401 UNAUTHORIZED <br />
+   **Content:** 
+    ```json
+    {
+      "status": false,
+      "msg": "UNAUTHORIZED"
+    }
+    ```
 
   
 * **Sample Call:**
@@ -562,7 +603,8 @@ https://projects.upanastudio.com/f8-api
           "lng": "119.40546800"
         }
         .......
-      ]
+      ],
+      "msg":"OK"
     }
     ```
  
